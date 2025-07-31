@@ -13,7 +13,8 @@ int main(void)
 	
 	while(1)
 	{	
-		KeyNum = Key_GetNum();
+		KeyNum = Key_GetNum();	//取得輸入狀態
+		
 		if (KeyNum == 1)
 		{
 			LED1_Turn();
