@@ -28,16 +28,16 @@ void MySPI_Init(void){
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
  	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	SPI_InitTypeDef SPI_InitStructure;
-	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
-	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_128;
-	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
-	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-	SPI_InitStructure.SPI_CRCPolynomial = 7;
+	SPI_InitTypeDef SPI_InitStructure;																													
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;																												//Master mode 
+	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;																	//SPI Full-Duplex Transmission
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;																										//Data size to 8bit
+	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;																									//MSB Frist
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_128;																//Set prescaler baud rate to 128  pclk / 128
+	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;																													//Set SPI clock polarity to low
+	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;																												//Set SPI clock phase to 1st edge
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;																														//Software control slave select
+	SPI_InitStructure.SPI_CRCPolynomial = 7;																														//Set CRC
 	SPI_Init(SPI1, &SPI_InitStructure);
 	
 	SPI_Cmd(SPI1, ENABLE);
