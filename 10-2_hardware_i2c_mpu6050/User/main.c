@@ -26,7 +26,7 @@ int main(void)
 
 	
 	while(1){
-		Mpu6050_GatData(&AX, &AY, &AZ, &GX, &GY, &GZ);
+		Mpu6050_GetData(&AX, &AY, &AZ, &GX, &GY, &GZ);
 		OLED_ShowSignedNum(2, 1, AX, 5);
 		OLED_ShowSignedNum(3, 1, AY, 5);
 		OLED_ShowSignedNum(4, 1, AZ, 5);

@@ -96,7 +96,7 @@ void Mpu6050_Init(){
 	Mpu6050_WriteReg(MPU6050_GYRO_CONFIG, 0x18);
 	Mpu6050_WriteReg(MPU6050_ACCEL_CONFIG, 0x18);
 }
-void Mpu6050_GatData(int16_t *AccX, int16_t *AccY, int16_t *AccZ, int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ){
+void Mpu6050_GetData(int16_t *AccX, int16_t *AccY, int16_t *AccZ, int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ){
 	
 	uint8_t DataH, DataL;
 	DataH = Mpu6050_ReadReg(MPU6050_ACCEL_XOUT_H);
