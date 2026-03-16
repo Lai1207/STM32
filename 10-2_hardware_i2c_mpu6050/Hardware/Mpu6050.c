@@ -79,12 +79,12 @@ void Mpu6050_Init(){
  	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	
 	I2C_InitTypeDef I2C_InitStructure;
-	I2C_InitStructure.I2C_Mode = I2C_Mode_I2C;
-	I2C_InitStructure.I2C_ClockSpeed = 50000;
-	I2C_InitStructure.I2C_DutyCycle = I2C_DutyCycle_2;
-	I2C_InitStructure.I2C_Ack =  I2C_Ack_Enable;
-	I2C_InitStructure.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit ;
-	I2C_InitStructure.I2C_OwnAddress1 = 0x00;
+	I2C_InitStructure.I2C_Mode = I2C_Mode_I2C;																						//Set I2c Mode
+	I2C_InitStructure.I2C_ClockSpeed = 50000;																							//Set I2c clock Speed
+	I2C_InitStructure.I2C_DutyCycle = I2C_DutyCycle_2;																		//Set Duty cycle
+	I2C_InitStructure.I2C_Ack =  I2C_Ack_Enable;																					//Enable Acknowledgment (ACK)
+	I2C_InitStructure.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit ;						//Set I2C address mode to 7-bit address
+	I2C_InitStructure.I2C_OwnAddress1 = 0x00;																							//Set MCU slave adderss
 	
 	I2C_Init(I2C2, &I2C_InitStructure);
 	
