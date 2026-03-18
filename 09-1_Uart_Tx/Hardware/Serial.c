@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 void Serial_Init(void){
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);															//Enable Usart Clock
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -13,12 +13,12 @@ void Serial_Init(void){
 	GPIO_Init(GPIOA,&GPIO_InitStructure);
 	
 	USART_InitTypeDef USART_InitStructure;
-	USART_InitStructure.USART_BaudRate = 9600;
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-	USART_InitStructure.USART_Mode = USART_Mode_Tx;
-	USART_InitStructure.USART_Parity = USART_Parity_No;
-	USART_InitStructure.USART_StopBits = USART_StopBits_1;
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_InitStructure.USART_BaudRate = 9600;																				//Set baud rate
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;		//Set HardwareFlowControl to None , CTS, RTS, CTS_RTS
+	USART_InitStructure.USART_Mode = USART_Mode_Tx;																		//Set Uart Mode to Rx, Tx, Rx | Tx  
+	USART_InitStructure.USART_Parity = USART_Parity_No;																//Set Parity Even, Odd, No 
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;														//Set Stop Bit 
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;												//Set Data Lenght
 	USART_Init(USART1,&USART_InitStructure);
 	
 	USART_Cmd(USART1,ENABLE);
