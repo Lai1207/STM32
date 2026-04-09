@@ -3,7 +3,8 @@
 #include "OLED.h"
 #include "AD.h"
 
-uint16_t ADValue, Volatge;
+uint16_t ADValue;
+float Volatge;
 int main(void)
 {
 	OLED_Init();
@@ -21,7 +22,7 @@ int main(void)
 		OLED_ShowNum(2, 9, Volatge, 1);
 		OLED_ShowNum(2,11, (uint16_t)(Volatge * 100) % 100, 2);
 	
-	
+		Delay_ms(100);
 	
 	}
 }

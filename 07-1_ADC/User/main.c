@@ -3,7 +3,9 @@
 #include "OLED.h"
 #include "AD.h"
 
-uint16_t ADValue, Volatge;
+uint16_t ADValue;
+float Volatge;
+
 int main(void)
 {
 	OLED_Init();

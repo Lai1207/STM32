@@ -9,12 +9,12 @@ void AD_Init(void){
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;												// Set gpio to AIN mode 										
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA,&GPIO_InitStructure);
 	GPIO_SetBits(GPIOA,GPIO_Pin_0);
 	
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 1, ADC_SampleTime_55Cycles5);
+
 	
 	
 	ADC_InitTypeDef ADC_InitStructure;
@@ -33,7 +33,8 @@ void AD_Init(void){
 	ADC_StartCalibration(ADC1);
 	while(ADC_GetCalibrationStatus(ADC1) == SET);
 }
-uint16_t AD_GetValue(){
+uint16_t AD_GetValue(uint8_t ADC_Channel){
+	ADC_RegularChannelConfig(ADC1, ADC_Channel, 1, ADC_SampleTime_55Cycles5);
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
 	return ADC_GetConversionValue(ADC1);

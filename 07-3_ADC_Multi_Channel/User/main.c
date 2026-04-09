@@ -3,7 +3,8 @@
 #include "OLED.h"
 #include "AD.h"
 
-uint16_t ADValue, Volatge;
+uint16_t ADValue;
+float Volatge, AD0, AD1, AD2, AD3;
 int main(void)
 {
 	OLED_Init();
@@ -15,7 +16,11 @@ int main(void)
 	
 	while(1)
 	{	
-		ADValue = AD_GetValue();
+		AD0 = AD_GetValue(ADC_Channel_0);
+		AD1 = AD_GetValue(ADC_Channel_1);
+		AD2 = AD_GetValue(ADC_Channel_2);
+		AD3 = AD_GetValue(ADC_Channel_3);
+		
 		Volatge = (float)ADValue / 4095 *3.3;
 		OLED_ShowNum(1, 9, ADValue, 4);
 		OLED_ShowNum(2, 9, Volatge, 1);
